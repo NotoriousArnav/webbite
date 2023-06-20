@@ -34,6 +34,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 INSTALLED_APPS = [
     'landingpage',
+    'blog',
     'rest_framework',
     'knox',
     'mdeditor',
@@ -162,3 +163,5 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
