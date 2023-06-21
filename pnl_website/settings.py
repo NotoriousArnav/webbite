@@ -33,12 +33,14 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Application definition
 
 INSTALLED_APPS = [
+    'autoreload',
     'landingpage',
     'blog',
     'rest_framework',
     'knox',
     'mdeditor',
     'taggit',
+    'fontawesomefree',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,7 +66,7 @@ ROOT_URLCONF = 'pnl_website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,9 +93,9 @@ MDEDITOR_CONFIGS = {
                     "emoji", "html-entities", "pagebreak", "goto-line", "|",
                     "help", "info",
                     "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar 
-        'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # image upload format type
+        'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp", "svg"],  # image upload format type
         'image_folder': 'editor',  # image save the folder name
-        'theme': 'default',  # edit box theme, dark / default
+        'theme': 'dark',  # edit box theme, dark / default
         'preview_theme': 'default',  # Preview area theme, dark / default
         'editor_theme': 'default',  # edit area theme, pastel-on-dark / default
         'toolbar_autofixed': True,  # Whether the toolbar capitals
@@ -105,7 +107,7 @@ MDEDITOR_CONFIGS = {
         'watch': True,  # Live preview
         'lineWrapping': False,  # lineWrapping
         'lineNumbers': False,  # lineNumbers
-        'language': 'zh'  # zh / en / es 
+        'language': 'en'  # zh / en / es 
     }
     
 }
