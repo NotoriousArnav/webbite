@@ -1,0 +1,36 @@
+{% load markdownify %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/blog.css">
+<link rel="stylesheet" href="/static/css/dark-theme.css">
+<style>
+page {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  padding: 2.5rem;
+}
+
+page[size="A4"] {
+  width: 21cm;
+}
+</style>
+{% endblock %}
+{% block body %}
+<page size="A4" id="content" class="md-render">
+<header>
+  <a href="/blog/">Go back</a>
+</header>
+<hr>
+<section>
+ <h1>{{ object.title }}</h1>
+ <div id="content">
+  {{ object.content | markdownify }}
+ </div>
+</section>
+<hr>
+<footer>
+<a href="/blog/{{ object.slug }}/comments">Click Here to See Comments</a>
+</footer>
+</page>
+{% endblock %}

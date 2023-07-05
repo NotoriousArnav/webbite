@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>Hello, Bitches!</h1>
+<ul>
+  {% for x in object_list %}
+  <li>
+    Comment on {{ x.post.title }}<br>
+    {{ x.author }}<br>
+    {{ x.content }}<br>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

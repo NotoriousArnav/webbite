@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<h1 class="text-4xl">See My Blogs</h1>
+<hr class="p-2">
+<ul class="grid grid-cols-2 gap-4">
+  {% for x in object_list %}
+  <li class="p-6 border border-white border-dashed">
+    <a href="/blog/{{x.slug}}">
+<h2 class="text-2xl">
+      {{x.title}}
+</h2>
+    <p>{{x.meta_description}}</p>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

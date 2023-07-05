@@ -7,28 +7,92 @@ body {
   background-repeat: no-repeat;
 }
 </style>
+<script>
+      function embedTwitterFeed() {
+      // Create HTML elements to hold Twitter feed
+      const container = document.createElement('div');
+      container.classList.add('winbox-content');
+      const twitterLink = document.createElement('a');
+      twitterLink.classList.add('twitter-timeline');
+      twitterLink.href = 'https://twitter.com/arnv2004?ref_src=twsrc%5Etfw';
+      twitterLink.innerHTML = 'Tweets by arnv2004';
+
+      // Append the Twitter link to the container
+      container.appendChild(twitterLink);
+
+      // Create script element to load Twitter widget
+      const script = document.createElement('script');
+      script.src = 'https://platform.twitter.com/widgets.js';
+      script.charset = 'utf-8';
+      script.async = true;
+
+      // Append the script element to the container
+      container.appendChild(script);
+
+      // Create Winbox.js window and display the Twitter feed
+      const winbox = new WinBox({
+        title: 'Twitter Feed',
+        width: '400px',
+        height: '500px',
+        x: 'center',
+        y: 'center',
+        mount: container,
+      });
+    }
+function in_Beta_Modal() {
+  const container = document.createElement('div');
+  container.innerHTML = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <title>In Progress</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="/static/css/dark-theme.css" rel="stylesheet">
+    </head>
+<body ><style> div.wb-body {background: #000; color: #fff} </style>
+      <h1>The Feature is in Progress.</h1>
+      <p>
+        I guess it will take some time, but I will definitely add this app to my website. Please be patient.
+      </p>
+    </body>
+    </html>
+  `;
+
+  const winbox = new WinBox({
+    title: 'In Progress',
+    mount: container,
+    modal: true,
+    width: '400px',
+    height: '300px',
+    x: 'center',
+    y: 'center'
+  });
+}
+
+</script>
 <div class="flex gap-6 w-1/2">
-  <button class="hover:bg-gray-800 transition p-2">
+  <button class="hover:bg-gray-800 transition p-2" onclick="in_Beta_Modal()">
     <i class="fa fa-terminal text-4xl"></i>
     &nbsp;Terminal
   </button>
-  <button class="hover:bg-gray-800 transition p-2">
+  <button class="hover:bg-gray-800 transition p-2" onclick="new WinBox('Blogs', {url: '/blog/', width: 810, height: 550})">
     <i class="fa fa-blog text-4xl"></i>
     &nbsp;Blogs
   </button>
-  <button class="hover:bg-gray-800 transition p-2">
+  <button class="hover:bg-gray-800 transition p-2" onclick="in_Beta_Modal()">
     <i class="fa fa-photo-film text-4xl"></i>
     &nbsp;Gallery
   </button>
-  <button class="hover:bg-gray-800 transition p-2">
+  <button class="hover:bg-gray-800 transition p-2" onclick="in_Beta_Modal()">
     <i class="fa-brands fa-whatsapp text-4xl"></i>
     &nbsp;Whatsapp
   </button>
-  <button class="hover:bg-gray-800 transition p-2">
+  <button class="hover:bg-gray-800 transition p-2" onclick="in_Beta_Modal()">
     <i class="fa fa-file-pdf text-4xl"></i>
     &nbsp;Resume
   </button>
-  <button class="hover:bg-gray-800 transition p-2">
+  <button class="hover:bg-gray-800 transition p-2" onclick="in_Beta_Modal()">
     <i class="fa fa-question-circle text-4xl"></i>
     &nbsp;Help
   </button>
@@ -40,8 +104,9 @@ body {
       <input name="search" type="text" placeholder="Search" class="p-2 text-primary bg-white">&nbsp;<button id="search-button" class="hover:bg-gray-700 transition p-2"><i class="fa fa-search"></i></button>
     </span>
     <span>|</span>
-    <button class="hover:bg-gray-700 transition p-2"><i class="fa-brands fa-twitter"></i></button>
-    <button class="hover:bg-gray-700 transition p-2"><i class="fa-brands fa-whatsapp"></i></button>
+    <button class="hover:bg-gray-700 transition p-2" onclick="embedTwitterFeed()"><i class="fa-brands fa-twitter"></i></button>
+    <button class="hover:bg-gray-700 transition p-2" onclick="new WinBox('Whatsapp Community', {url: 'https://wa.me/settings'})"><i class="fa-brands fa-whatsapp"></i></button>
+    <span><strong>The website is in Alpha. Expect things to be Broken</strong></span>
   </div>
   <div class="flex items-center">
   <span>|</span>
@@ -55,23 +120,23 @@ body {
 <div id='start-menu-contents' class="hidden transition fixed bottom-10 left-0 p-2 bg-primary flex px-4">
   <ul class="grid">
     <li class="p-2 hover:bg-gray-600">
-      <button class="">
+      <button class="" onclick="in_Beta_Modal()">
         <i class="fa fa-terminal"></i>&nbsp;Terminal
       </button>
     </li>
     <li class="p-2 hover:bg-gray-600">
-      <button class="">
+      <button class="" onclick="new WinBox('Blogs', {url: '/blog/', width: 810, height: 550})">
         <i class="fa fa-blog"></i>&nbsp;Blogs
       </button>
     </li>
       <hr class="text-white p-1">
     <li class="p-2 hover:bg-gray-600">
-      <button class="">
+      <button class="" >
         <i class="fa-brands fa-whatsapp"></i>&nbsp;WhatsApp
       </button>
     </li>
     <li class="p-2 hover:bg-gray-600">
-      <button class="">
+      <button class="" onclick="new WinBox('BroCode Tech Community', {url: 'https://brocode-tech.netlify.app/'})">
         <img src="" alt="">BroCode
       </button>
     </li>
@@ -87,7 +152,7 @@ body {
     </li>
       <hr class="text-white p-1">
     <li class="p-2 hover:bg-gray-600">
-      <button class="">
+      <button class="" onclick="in_Beta_Modal()">
         <i class="fa fa-key"></i>&nbsp;Login
       </button> 
     </li>
@@ -109,5 +174,7 @@ body {
   }
 
 </script>
+
+
 
 {% endblock%}
